@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-const mysql = require('mysql');
 const myConnection = require('express-myconnection');
+const mysql = require('mysql2');
 
 
 //Generacion aplicacion
@@ -24,13 +24,24 @@ app.set('layout', 'layout');
 //middlewares: Funciones se ejecutan entre la recepcion de una solicitud y el envió de una respuesta basicamente es un intermediario entre el cliente y el servidor
 app.use(morgan('dev'))  //mostrar mensajes por consola con dev
 //Conexion a BD mysql
-app.use(myConnection(mysql,{
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    port: process.env.DB_PORT || 3306,
-    database:process.env.DB_NAME || 'mydb',
-}, 'single'));
+
+
+const connection = mysql.createConnection({
+  host: 'containers-us-west-77.railway.app',
+  user: 'root',
+  password: 'saOVhWAHJ1yhrTPctXx7',
+  database: 'railway',
+  port: 7849
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('Error al conectar a la base de datos:', err);
+  } else {
+    console.log('Conexión exitosa a la base de datos.');
+    // Aquí puedes ejecutar consultas, etc.
+  }
+});
 
 //manejo de middleware
 

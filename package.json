@@ -6,7 +6,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
@@ -17,7 +16,8 @@
     "express": "^4.18.2",
     "express-myconnection": "^1.0.4",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
