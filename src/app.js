@@ -25,11 +25,11 @@ app.set('layout', 'layout');
 app.use(morgan('dev'))  //mostrar mensajes por consola con dev
 //Conexion a BD mysql
 app.use(myConnection(mysql,{
-    host:'localhost',
-    user: 'root',
-    password: '',
-    port: 3306,
-    database: 'mydb',
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    port: process.env.DB_PORT || 3306,
+    database:process.env.DB_NAME || 'mydb',
 }, 'single'));
 
 //manejo de middleware
@@ -41,7 +41,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/', manejoRutas);
 
 //Nos permite que Node este escuchando al puerto 300 y ademas nos notifica mediante un mensaje en consola que esta activo y en que puerto
-app.listen(4000, ()=>{
+app.listen(process.env.PORT || 4000, ()=>{
     console.log('Servidor escuchando el puerto 4000');
 });
 

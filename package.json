@@ -1,4 +1,12 @@
 {
+  "name": "1-day-page",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
