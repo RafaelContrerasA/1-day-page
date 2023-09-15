@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'Tectimeee'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_233C21D52F08430298C9FA2AD426F342 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3FD9DF0FB7AB4AACB40E3408FAC29EA9 }}
           package: .
